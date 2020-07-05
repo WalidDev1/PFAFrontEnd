@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-auto">
+            Le titre de votre de annonce : <input type="text" [(ngModel)]="titre" id="textpop">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="label">Information Génerale :</div>
+        </div>
+    </div>
+
+    <div class="row flex-column scrollPrimary" style=" height: 130px; margin-top: 10px;overflow:auto;">
+        <div class="col-auto">
+            <button type="button" class="btn  btnAjout" (click)="selectInfo = 'nbS'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/bain.gif);">Nombre
+                de salle de bains</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btnAjout" (click)="selectInfo = 'nbSurf'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/surface_jardin.gif);">Surface
+                en m<sup>2</sup></button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'nbP'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/piece.gif);">Nombre
+                de Piece</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'nbV'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/adresse.gif);">Adresse</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'nbEtage'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/Etage_const.gif);">Etage</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'nbGarage'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/Garage_m.gif);">Parking</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'description'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/bain.gif);">Description</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'prix'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/price.gif);">Prix</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'dateCreation'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/date.gif);">Date
+                de construction</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'contrat'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/contrat.gif);">Contrat</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'immo'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/category.gif);">type
+                immobilier</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btnAjout" (click)="selectInfo = 'verdure'"
+                style="background-image: url(../../assets/images/button/Rectangle_filtre.png),url(../../assets/images/button/verdure.png);">Pourcentage de verdure</button>
+        </div>
+    </div>
+    <div class="row" style="
+        align-items: baseline;
+        margin-top: 10px;
+        ">
+        <div *ngIf="selectInfo == 'nbS'" class="col-sm-auto">
+            Enter le nombre : <input type="number" [(ngModel)]="nbBain" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'nbSurf'" class="col-sm-auto">
+            Enter la surface : <input type="number" [(ngModel)]="surface" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'nbP'" class="col-sm-auto">
+            Enter le nombre : <input type="number" [(ngModel)]="nbPiece" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'nbV'" class="col-md-auto">
+            <fieldset class="form-inline">
+                <div class="form-group" id="listV">
+                    <input id="typeahead-basic test" type="text" class="form-control" (selectItem)="click($event)"
+                        [(ngModel)]="model" [ngbTypeahead]="search" placeholder="Ville" />
+                    <small *ngIf="searching" class="form-text text-muted"><span class="spinner-border spinner-border-sm"
+                            role="status" aria-hidden="true" style="margin-left: 10px;"></span> searching...</small>
+                    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+                </div>
+            </fieldset>
+            <textarea style="margin-top: 10px;width: 100%;border-radius: 5px;
+                  border: solid 1px #cdd4da;    padding-left: 15px;" type="text" [(ngModel)]="nomQ" id=""
+                placeholder="Adresse"></textarea><a class="badge badge-warning">Veuilez posititioner le mercker de la
+                carte sur sur votre adresse</a>
+        </div>
+
+        <div *ngIf="selectInfo == 'dateCreation'" class="col-sm-auto">
+            Enter la date : <input type="date" [(ngModel)]="dateConstruction" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'nbEtage'" class="col-sm-auto">
+            Enter le nombre d'etage : <input type="number" [(ngModel)]="nbEtage" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'nbGarage'" class="col-sm-auto">
+            Enter le nombre de garage : <input type="number" [(ngModel)]="nbGarage" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'description'" class="col-sm-auto">
+            Enter la description de votre immobilier : <br>
+            <textarea [(ngModel)]="description" id="textpop" style="width: 100%;text-align: left;"></textarea>
+        </div>
+
+        <div *ngIf="selectInfo == 'prix'" class="col-sm-auto">
+            Enter le prix : <input type="text" [(ngModel)]="prix" id="textpop">
+        </div>
+
+        <div *ngIf="selectInfo == 'contrat'" class="col-sm-auto">
+            Enter le type de contrat :
+            <select [(ngModel)]="typeContrat" id="">
+                <option value="1">Vente</option>
+                <option value="3">Location</option>
+                <option value="2">Vente professionnelle</option>
+                <option value="4">Location professionnelle</option>
+            </select>
+        </div>
+        <div *ngIf="selectInfo == 'immo'" class="col-sm-auto">
+            Enter le type d'immobilier :
+            <select [(ngModel)]="typeImmobilier" id="">
+                <option value="1">Villa</option>
+                <option value="2">Villa commercial</option>
+                <option value="3">Maison</option>
+                <option value="4">Appartement</option>
+                <option value="5">Terrain</option>
+                <option value="6">Châlet</option>
+                <option value="7">Garage</option>
+                <option value="8">Hangare</option>
+                <option value="9">Châteaux</option>
+            </select>
+        </div>
+        <div class="range-wrap"  *ngIf="selectInfo == 'verdure'">
+            <div class="range-value" id="rangeV" style="left: 50%;" ><span>{{ verdure }}</span></div>
+            <input id="range" [(ngModel)]="verdure" type="range" min="0" max="100" value="0" step="1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="file">Imges : </label>
+            <div class="form-group" style="background-color: #D1F1E6;
+                border-radius: 15px;
+                height: 70%;
+                ">
+                <input style="position: relative;
+                top: 0;
+                right: 0;
+                font-size: 100px;
+                text-align: right;
+                z-index: 3;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: white;
+                cursor: inherit;
+                display: block;" formControlName="file" id="file" type="file" class="form-control" multiple=""
+                    (change)="onFileChange($event)">
+                <div class="col" style="    display: flex;
+                    overflow-x: auto;
+                    position: relative;
+                        top: -115px;
+                        
+                    ">
+                    <img *ngFor='let url of images' [src]="url" height="300px" style="margin: 3px;  "> <br />
+                </div>
+                <span class="file-cta" [style.top]="isAddImg ? '40px' : '45%'" style="position: absolute;
+                    color: #19B074;
+                    left: 40%;">
+                    <span class="file-icon">
+                        <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        ou clicker pour choisir vos images
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-around">
+        <div class="col-auto">
+            <button type="btn" class="btn button_Enre" (click)="onDone()">Enregistrer</button>
+            <!--disabled-->
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn button_annuler">Annuller</button>
+        </div>
+    </div>
+</div>

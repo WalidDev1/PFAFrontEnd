@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "../node_modules/placeholder-loading/src/scss/placeholder-loading";
+@import "~font-awesome/css/font-awesome.css";
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #E0E3E3; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  $ph-bg:                   #fff !default;
+$ph-color:                #ced4da !default;
+$ph-border-radius:        2px !default;
+ 
+$ph-gutter:               30px !default;
+$ph-spacer:               15px !default;
+ 
+$ph-avatar-border-radius: 50% !default;
+ 
+$ph-animation-duration:   .8s !default;
+
+.modal-backdrop.show{
+  visibility: hidden !important;
+}

@@ -1,0 +1,75 @@
+<div class="container-fluid desciption">
+    <div class="row">
+        <div class="col-md" style="height: 100%;overflow: auto;">
+            <div class="row" style="height: 780px;">
+                <app-card-offre class="col-md-5" style="margin-right: 0px;padding-right: 0px;padding-left: 0px;"
+                    *ngFor="let offre of liste_offre" [title]="offre.Titre"
+                    [adresse]="offre.Quartier.nom+', '+offre.Ville.nom" [prix]="offre.Prix"
+                    [nbPiece]="offre.NombrePiece" [nbToilette]="offre.NombreSB" [surface]="offre.Surface"
+                    [image]="offre.images" [idOffre]="offre.id">
+                </app-card-offre>
+            </div>
+        </div>
+        <div class="col-md-5" style="height: 100%;">
+            <div class="row" style="height: 500px;">
+                <div class="card text-center" style="width: 100%;height: 80%;">
+                    <button *ngIf="vendeur.imagesP != '' " class="btn btn-default btn-file" style="background-image: url({{previewUrl}});
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-position: center;
+                    border: none;
+                    width: 110px;
+                    height: 110px;
+                    margin-top: 10px;
+                    "><input type="file" id="images" (change)="fileProgress($event)" /></button>
+                    <button *ngIf="vendeur.imagesP == '' " class="btn btn-default btn-file" style="background-image: url({{previewUrl}});
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    background-position: center;
+                    border: none;
+                    width: 30%;
+                    height: 110px;
+                    margin-top: 10px;
+                    "><input type="file" id="images" (change)="fileProgress($event)" /></button>
+                    <div class="card-body" style="padding: 5% !important;overflow: auto;height: 100%;">
+                        <div class="text">
+                            <input type="text" class="inputA" style="font-family: Arial ;font-weight: bold;font-size: 15px;"
+                                placeholder="Nom" [(ngModel)]=vendeur.nom (change)="checkUpdate(vendeur.nom , 'nom')" >
+                        </div>
+                        <div class="text">
+                            <input type="text" class="inputA" style="font-family: Arial ;font-weight: bold;font-size: 15px;"
+                                placeholder="Prenom" [(ngModel)]=vendeur.prenom (change)="checkUpdate(vendeur.prenom , 'prenom')" >
+                        </div>
+                        <div class="text">
+                            <input type="text" class="inputA" style="font-family: Arial ;font-weight: bold;font-size: 15px;"
+                                placeholder="telephone" [(ngModel)]=vendeur.tele (change)="checkUpdate(vendeur.tele , 'tele')" >
+                        </div>
+                        <div class="text">
+                            <label type="label" class="inputA"
+                                style="font-family: Arial ;font-weight: bold;font-size: 15px;">Pack :
+                                Vendeur</label>
+                        </div>
+                        <div class="row justify-content-around">
+                            <button class="btn enregisterA">Changer de Pack</button>
+                        </div>
+                        <div class="row justify-content-around">
+                            <button id="eng" class="btn enregisterA" (click)="OnclickEng()" disabled>Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>

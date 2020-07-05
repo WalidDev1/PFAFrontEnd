@@ -1,0 +1,165 @@
+<div class="container " style="border: 2cm;font-family: Arial Rounded MT Bold;width: 80%;overflow: auto;height: 80%;
+">
+
+    <div class="card card-cascade ">
+        <style>
+            .btn-file {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-file input[type=file] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                min-width: 100%;
+                min-height: 100%;
+                font-size: 100px;
+                text-align: right;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: white;
+                cursor: inherit;
+                display: block;
+            }
+        </style>
+            <!-- Card image -->
+            <div class="view view-cascade overlay text-center">
+
+                <button class="btn btn-default btn-file" style="background-image: url({{previewUrl}});
+            background-size: 100%;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            background-position: center;
+            border: none;
+            width: 30%;
+            height: 110px;
+            margin-top: 10px;
+            "><input type="file" id="images"  (change)="fileProgress($event)"/></button>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <div class="form-group">
+                    <input type="text" id="nom" [className]="'form-control'" [(ngModel)]="nom" aria-describedby="emailHelp" placeholder="Nom">
+                    <div class="invalid-feedback" style="text-align: initial;">
+                        Champ obligatoire *
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" [className]="'form-control'" id="prenom" [(ngModel)]="prenom" aria-describedby="emailHelp"
+                        placeholder="Prenom">
+                        <div class="invalid-feedback" style="text-align: initial;">
+                            Champ obligatoire *
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" [className]="'form-control'" id="tele" [(ngModel)]="tele" aria-describedby="emailHelp"
+                        placeholder="Numero de telephone">
+                        <div class="invalid-feedback" style="text-align: initial;">
+                            Champ obligatoire *
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" [className]="'form-control'" id="mail" required  [(ngModel)]="mail"  aria-describedby="emailHelp"
+                        placeholder="exemple@gmal.com">
+                        <div class="invalid-feedback" style="text-align: initial;">
+                          {{ messageErreur }}
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" [className]="'form-control'" id="pass1" aria-describedby="emailHelp" [(ngModel)]="passe1"
+                        placeholder="Mot de passe" >
+                        <div class="invalid-feedback" style="text-align: initial;">
+                            Champ obligatoire *
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" [className]="'form-control'"  id="pass2" aria-describedby="emailHelp" [(ngModel)]="passe2"
+                        placeholder="Comfirmer votre mot de passe">
+                    <div class="invalid-feedback" style="text-align: initial;">
+                        Les deux mots de passe ne sont pas identique
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Sexe :</label>
+                    <mat-radio-group>
+                        <button type='button' class="form-group" style="background-image: url({{radiomm}});background-size: contain;
+                    background-repeat: no-repeat;
+                    border: none;
+                    width: 20%;
+                margin-left: 40px;
+                height: 20px;
+                    " (click)="onclickRadio()" [(ngModel)]="sexe" value="H"></button>
+                        <button type='button' class="form-group" style="background-image: url({{radiome}});background-size: contain;
+                    background-repeat: no-repeat;
+                    border: none;
+                    width: 20%;
+                margin-left: 10px;
+                height: 20px;
+                    " (click)="onclickRadio()" [(ngModel)]="sexe" value="F" ></button>
+                    </mat-radio-group>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="typeP" [(ngModel)]="typeP" id="exampleFormControlSelect1" style="text-align: center;
+                    text-align-last: center;font-weight: bold;">
+                        <option selected value="1">Recherche immobilier</option>
+                        <option value="2">Vendeur</option>
+                    </select>
+                    <div class="invalid-feedback" style="text-align: initial;">
+                        Vous n'avez pas selectionner de type de votre compte
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <button type="button" style="background-image: url({{Mycheck}});background-size: contain;
+                            background-repeat: no-repeat;
+                            border: none;
+                            width: 20px;
+                            height: 20px;
+                            " (click)="Check()"></button>
+                        </div>
+                        <div class="col">
+                            <label style="font-size: small;text-decoration: underline;" data-toggle="modal" data-target="#exampleModal">j ai lu et j’accepte les
+                                conditions générales d’utilisation</label>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- Card footer -->
+            <div class="card-footer text-muted text-center">
+                <button class="btn btn-Connection" (click)="inscri()"
+                    style="background-color:#19B074 ;color: white;width: 100%;">Inscription</button>
+            </div>
+       
+        </div>
+        
+    <!-- Card Regular -->
+</div>
+<div class="modal fade" id="exampleModal" tabindex="10" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Condition d'utilisation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" ngModel="Description" [innerHTML]="DescriptionCondition">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" id="alerte" role="alert" [ngStyle]="{'visibility': forSee}" >
+    Vous n'avez pas accepter les conditions d'utilisation.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>

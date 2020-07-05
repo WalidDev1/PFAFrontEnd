@@ -1,0 +1,53 @@
+
+<nav class="navbar navbar-expand-lg navbar-light fixed justify-content-between" style="border-top-right-radius: 40px;" >
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/images/logo_with.png" width="80" height="80" alt="">
+  </a>
+    <ul class="nav nav-pills mb-3 " *ngIf="!isAuth" id="pills-tab" role="tablist" style="padding-top: 10px;">
+      <div class="nav-item">
+      </div>
+        <li class="nav-item" >
+          <a  class="nav-link "  id="pills-home-tab"   href="/insciption" role="tab" aria-controls="pills-home" aria-selected="true">Inscription</a>
+        </li>
+        <li class="nav-item" >
+          <a  class="nav-link " id="pills-contact-tab" href="/connection" role="tab" aria-controls="pills-contact" aria-selected="true">Connection</a>
+        </li>
+    </ul>
+    <ul class="nav nav-pills mb-3 " *ngIf="isAuth" id="pills-tab" role="tablist" style="padding-top: 10px;">
+      <div class="nav-item">
+      </div>
+        <li class="nav-item">
+          <div class="dropdown dropleft">
+            <button *ngIf="user" class="rounded-circle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="
+            background-image: url({{user.urlProfile}});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;"></button>
+            <button *ngIf="!user" class="rounded-circle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="
+            background-image: url(../../assets/images/logo_with.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;"></button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item"  [routerLink]="['/Vendeur/', vendeur.idVendeur,vendeurType ]" >Compte</a>
+              <a *ngIf="typecompte != 1" class="dropdown-item" (click)="OnClickAjoutOffre()">Ajouter une annonce</a>
+              <a class="dropdown-item">Annonce favori</a>
+              <a class="dropdown-item" (click)="logOut()" href="/">Deconnection<i class="fas fa-sign-out-alt" ></i></a>
+            </div>
+          </div>
+        </li>
+    </ul> 
+          
+       
+  </nav>
+  <router-outlet></router-outlet>
+
+  <ng-http-loader></ng-http-loader>

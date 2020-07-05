@@ -1,0 +1,140 @@
+.MycustomImg{
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.container {
+    display: block;
+    margin: 0 auto;
+  }
+  .progress {
+    fill:none;
+    stroke: #f8f8f8;
+    stroke-width: 12;
+    stroke-linecap: round;
+    transform-origin: center;
+    //transform: rotate(-90deg);
+  }
+  text {
+    font-family: 'Lato', sans-serif;
+    fill: #86afad;
+  }
+  #lang{
+    width: 550px;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+    color: #86afad;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  #lang div{
+    margin: 0 13% 0 9%;
+    vertical-align: top;
+    display: inline-block;
+  }
+  .desciption{
+    overflow: auto;
+    height: 85%;
+  }
+  @media SCREEN AND (max-height: 500px){
+    .desciption{ height:80%;  }
+    
+  }
+
+  .dat{
+    width: 0px;
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .charts-details:hover{
+        background-color: #19B47A !important;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25) !important;
+        .dat{
+
+            visibility: visible !important;
+            width: 10%;
+            
+        }
+  }
+
+  .dropdown-toggle::after {
+      content: none !important;
+  }
+
+  .user {
+    position: relative;
+    top: 50px;
+    -webkit-animation: upDown 3s infinite normal linear;
+    animation: upDown 3s infinite linear;
+  }
+
+  .user1,
+  .user3,
+  .user5 {
+    -webkit-animation: upDown1 4s infinite normal linear;
+    animation: upDown1 4s infinite linear;
+  }
+
+  .user2,
+  .user4,
+  .user6 {
+    -webkit-animation: upDown1 2s infinite normal linear;
+    animation: upDown1 2s infinite linear;
+  }
+
+  .user7,
+  .user8,
+  .user9 {
+    -webkit-animation: upDown1 2s infinite normal linear;
+    animation: upDown1 2s infinite linear;
+  }
+
+  .user10,
+  .user11,
+  .user12 {
+    -webkit-animation: upDown1 2s infinite normal linear;
+    animation: upDown1 2s infinite linear;
+  }
+  @-webkit-keyframes upDown1 {
+    from {
+      -webkit-transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+    }
+
+  }
+  @keyframes upDown {
+    from {
+      -webkit-transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+    }
+
+  }
+
+
+  @-webkit-keyframes upDown {
+    from {
+      -webkit-transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+    }
+
+  }
+  @keyframes upDown {
+    from {
+      -webkit-transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+    }
+
+  }

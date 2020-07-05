@@ -1,0 +1,100 @@
+<div class="container-fluid h-100">
+    <div class="row">
+        <div class="col">
+            <div class="col-form-label-sm" style="font-size: 140%;">
+                Chercher <span style="color: #19B074;">dans </span> <input type="text"  [(ngModel)]="World" id="search" (ngModelChange)="search()" >
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div ngbDropdown class="d-inline-block ">
+            <button class="btn  custom-select shadow-sm  rounded selectP" id="dropdownBasic1" ngbDropdownToggle >
+                <i class="fas fa-funnel-dollar" style="margin-right: 5px;"></i>{{selectedValue}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="changePrix('Tous les prix')">Tous les prix</button>
+              <button ngbDropdownItem (click)="changePrix('< 100 000')" >< 100 000</button>
+              <button ngbDropdownItem (click)="changePrix('100 000 - 500 000')" >100 000 - 500 000</button>
+              <button ngbDropdownItem (click)="changePrix('500 000 - 1 000 000')" >500 000 - 1 000 000</button>
+              <button ngbDropdownItem (click)="changePrix('1 000 000 - 5 000 000')" >1 000 000 - 5 000 000</button>
+              <button ngbDropdownItem (click)="changePrix('5 000 000 - 10 000 000')" >5 000 000 - 10 000 000</button>
+              <button ngbDropdownItem (click)="changePrix('> 10 000 000')" >> 10 000 000</button>
+            </div>
+        </div>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn custom-select shadow-sm  rounded selectP" id="dropdownBasic1" ngbDropdownToggle >
+                <i class="fas fa-door-open" style="margin-right: 5px;"></i>{{selectedPiece}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="changePiece('Tous les Piece')">Tous les Piece</button>
+              <button ngbDropdownItem (click)="changePiece('< 4')" >< 4</button>
+              <button ngbDropdownItem (click)="changePiece('4 - 6')" >4 - 6</button>
+              <button ngbDropdownItem (click)="changePiece('6 - 10')" >6 - 10</button>
+              <button ngbDropdownItem (click)="changePiece('10 >')" >10 ></button>
+            </div>
+        </div>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn custom-select shadow-sm  rounded selectP" id="dropdownBasic1" ngbDropdownToggle >
+                <i class="fas fa-home" style="margin-right: 5px;"></i>{{selectedType}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="changeType('Tous les Types')">Tous les Types</button>
+              <div class="btn-group dropright">
+                  <button ngbDropdownItem (click)="changeType('Villa')" >Villa</button>
+                  <button type="button" class="btn  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropright</span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <button ngbDropdownItem (click)="changeType('Villa commercial')" >Villa commercial</button>
+                  </div>
+                </div>
+              <button ngbDropdownItem (click)="changeType('Maison')" >Maison</button>
+              <button ngbDropdownItem (click)="changeType('Terrain')" >Terrain</button>
+              <button ngbDropdownItem (click)="changeType('Châtlet')" >Châtlet</button>
+              <button ngbDropdownItem (click)="changeType('Garage')" >Garage</button>
+              <button ngbDropdownItem (click)="changeType('Hangare')" >Hangare</button>
+              <button ngbDropdownItem (click)="changeType('Châteaux')" >Châteaux</button>
+            </div>
+        </div>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn custom-select shadow-sm  rounded selectP" id="dropdownBasic1" ngbDropdownToggle >
+                <i class="fas fa-file-signature" style="margin-right: 5px;"></i>{{selectedTypeC}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="changeTypeC('Tous les types de contrat')">Tous les types de contrat</button>
+              <button ngbDropdownItem (click)="changeTypeC('Achat')" >Achat</button>
+              <button ngbDropdownItem (click)="changeTypeC('Location')" >Location</button>
+            </div>
+        </div>
+</div>
+<div class="row ">
+    <div class="col-8"></div>
+    <div class="col">
+    <p for="" style="color: #8E9898; margin-top: 8px;right: 0px;text-align: right;">Trier par :</p>
+    </div>
+    <div class="col" style="padding-left: 0px;">
+        <div class="dropdown" >
+            <button class="btn custom-select dropdown-toggle" style="border: none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{selectedFiltre}}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left " style="z-index: 10;" aria-labelledby="dropdownMenuButton">
+                <button ngbDropdownItem (click)="changeFiltre('Prix')"><i class="fas fa-coins" style="margin-right: 5px;"></i>Prix</button>
+                <button ngbDropdownItem (click)="changeFiltre('Date de publication')" ><i class="fas fa-upload" style="margin-right: 5px;"></i>Date de publication</button>
+                <button ngbDropdownItem (click)="changeFiltre('Tandance')" ><i class="fas fa-fire-alt" style="margin-right: 5px;"></i>Tandance</button>
+            </div>
+          </div>
+    </div>
+
+</div>
+
+<div class="row overflow-auto " id="mouchkil" style="display: flex;
+width: 100%;height: 64%;">
+    <app-card-offre class="col-md-4"
+    *ngFor="let offre of liste_offre"
+    [title] = "offre.Titre"
+    [adresse]= "offre.Quartier.nom+' ,'+offre.Ville.nom"
+    [prix]= "offre.Prix"
+    [nbPiece]= "offre.NombrePiece"
+    [nbToilette]= "offre.NombreSB"
+    [surface]= "offre.Surface"
+    [image]= "offre.images"
+    [idOffre]="offre.id"
+    ></app-card-offre>
+    
+</div>

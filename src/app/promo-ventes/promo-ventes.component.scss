@@ -1,0 +1,80 @@
+.offre1 {
+    background-position: center;
+    width: 16rem;
+    height: 550px;
+    text-align: center;
+    border-radius: 90px;
+
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba($color : #EBDA51,$alpha : 0.70) !important;
+    background-repeat: no-repeat;
+    background-size: 360%;
+    background-position: center center;
+    color: white;
+
+    &:hover {
+        animation: shrink 3s forwards;
+    }
+
+}
+
+
+@keyframes shrink {
+    0% {
+        background-size: 360%;
+    }
+
+    100% {
+        background-size: 430%;
+    }
+}
+
+.card-body {
+    text-align: initial;
+
+}
+
+.filtre {
+    background-color: rgba($color: black, $alpha: 0.5);
+    height: 100%;
+    
+}
+.card-footer{
+    border-radius: 0px 0px 90px 90px;
+    background-color: rgba($color: black, $alpha: 0.5);
+    height: 20%;
+}
+.card-title {
+    padding-top: 12%;
+    font-size: 140%;
+    width: 100%;
+    margin-bottom: 0px;
+    background-color: #19B074;
+    border-radius: 90px 90px 0px 0px;
+    align-items: center;
+    height: 15%;
+}
+
+.buy{
+    background-color: white;
+    border-radius: 15px;
+    color: #19B47A;
+    width: 50%;
+    font-size: 110%;
+    &:hover {
+        animation: btnBuy 2s forwards;
+    }
+}
+
+
+@keyframes btnBuy {
+    0% {
+        background-color: white;
+        color: #19B47A;
+    }
+
+    100% {
+        background-color: #19B47A;
+        color: white;
+    }
+}

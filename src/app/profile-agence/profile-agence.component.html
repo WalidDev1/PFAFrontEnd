@@ -1,0 +1,78 @@
+<div class="container-fluid desciption">
+    <div class="row">
+        <div class="col-form-label-sm" style="font-size: 140%;">
+            Chercher <span style="color: #19B074;">dans </span> <input type="text" name="" id="search" se>
+        </div>
+    </div>
+    <div class="row justify-content-around" style="height: 90%;">
+        <div class="col-md" style="
+            overflow-y: auto;">
+            <div class="row">
+                <canvas id="canvas1"></canvas>
+            </div>
+            <div class="row">
+                <canvas id="canvas2"></canvas>
+            </div>
+        </div>
+        <div class="col-md-5" style="height: 100%;">
+            <div class="flip-card" id="element">
+                <div id="element2" class="flip-card-inner">
+                    <div id="card" class="flip-card-front">
+
+                        <div class="card text-center" style="width: 100%;height: 100%;">
+                            <img src="../../assets/images/button/addLogoAgence.png" class="card-img-top rounded-circle"
+                                alt="..." style="height: 80px;zoom: 2;
+                width: 80px;
+                margin-top: 20px;
+                align-self: center;
+                object-fit: cover;
+                padding: 3px;
+                border: solid 2px #E8EBE9;">
+                            <div class="card-body" style="padding: 5% !important;overflow: auto;
+                height: 100%;">
+                                <div class="text">
+                                    <input type="text" class="inputA"
+                                        style="font-family: Arial ;font-weight: bold;font-size: 15px;"
+                                        placeholder="Nom de l'agence *">
+                                </div>
+                                <div class="text" style="text-align: left;">
+                                    Desciption :
+                                </div>
+                                <textarea class="form-control" aria-label="With textarea"
+                                    style="margin-top: 5px;"></textarea>
+
+                                <button class="btn enregisterA" disabled>Enregistrer</button>
+
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-center">
+                                    <button class="btn showO" style="font-size: 90%;color: #A3ABAB;"
+                                        (click)="flip(true)"><i class="fas fa-search"></i> Voir mes offres</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="container" style="height: 100%;">
+                            <div class="row">
+                                <button class="btn" (click)="flip(false)"><i class="fas fa-hand-point-left"
+                                        style="color: #19B074;font-size: 170%;"></i></button>
+                            </div>
+                            <div class="row overflow-auto " id="mouchkil" style="display: flex;width: 100%;height: 90%;">
+                                <app-card-offre class="col-xl-6"
+                                    style="margin-right: 0px;padding-right: 0px;padding-left: 0px;"
+                                    *ngFor="let offre of liste_offre" [title]="offre.title" [adresse]="offre.adresse"
+                                    [prix]="offre.prix" [nbPiece]="offre.nbToilette" [nbToilette]="offre.nbPiece"
+                                    [surface]="offre.surface" [image]="offre.image"></app-card-offre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
